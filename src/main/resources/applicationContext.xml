@@ -2,5 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <bean class="okhttp3.OkHttpClient" id="okHttpClient"/>
+    <bean class="com.pkg.demopreprocess.service.request.impl.ExtractImpl" id="extract">
+        <constructor-arg index="0" ref="okHttpClient"/>
+        <constructor-arg index="1" value="${request.url}"/>
+        <constructor-arg index="2" value="${request.method}"/>
+        <constructor-arg index="3" value="${request.task}"/>
+        <constructor-arg index="4">
+            <map>
+                <entry key="PaddleUIENER_type" value="0" value-type="java.lang.Integer"/>
+                <entry key="relation_type" value="attribute"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>

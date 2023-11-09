@@ -1,4 +1,4 @@
-package com.pkg.demopreprocess.request.pojo;
+package com.pkg.demopreprocess.service.request.pojo;
 
 import java.util.Map;
 
