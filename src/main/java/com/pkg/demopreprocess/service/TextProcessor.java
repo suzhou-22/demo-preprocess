@@ -1,11 +1,9 @@
 package com.pkg.demopreprocess.service;
 
 import com.pkg.demopreprocess.pojo.Text;
-import org.apache.logging.log4j.util.Strings;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class TextProcessor {
 
@@ -18,7 +16,7 @@ public class TextProcessor {
     public static final int MESSAGE_TYPE_QUEUED = 6; // for messages to send later
 
     private static class Formatter {
-        List<String> fields = new ArrayList<>();
+        StringJoiner fields = new StringJoiner(", ");
 
         Formatter add(String key, String value) {
             if (value != null && !value.isBlank()) {
@@ -29,7 +27,7 @@ public class TextProcessor {
 
         @Override
         public String toString() {
-            return Strings.join(fields, ',');
+            return fields.toString();
         }
     }
 
