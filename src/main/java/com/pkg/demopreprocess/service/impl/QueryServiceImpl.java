@@ -84,8 +84,33 @@ public class QueryServiceImpl implements QueryService {
 
             // TODO：事件
             if (item.getString("info_type").equals("事件")) {
-                String display = item.toJSONString();
-                messages.add(new Message(Message.Type.STRING, display, null));
+                String display = item.getString("event_name");
+                Map<String, String> attribute = new LinkedHashMap<>();
+
+                item.forEach((k, v) -> {
+                    if (k.equals("info_type"))
+                        return;
+                    if (k.equals("event_name")) {
+                        attribute.put("事件名", (String) v);
+                        return;
+                    }
+
+                    // TODO 重复
+                    if (v instanceof JSONArray vArray) {
+                        StringBuilder sb = new StringBuilder();
+                        for (int j = 0; j < vArray.size(); j++) {
+                            sb.append(vArray.getString(j));
+                            if (j != vArray.size() - 1)
+                                sb.append(", ");
+                        }
+                        attribute.put(k, sb.toString());
+                        return;
+                    }
+                    attribute.put(k, (String) v);
+                });
+
+                messages.add(new Message(Message.Type.PERSON, display, attribute));
+
             }
 
         }
