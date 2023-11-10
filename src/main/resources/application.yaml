@@ -2,6 +2,6 @@ server:
   port: 12345
 
 request:
-  url: http://122.9.154.144:6001
-  method: SeqGPT
-  task: IE
+  host: http://localhost:12346
+  extract: getExtractionResult
+  query: queryDatabase

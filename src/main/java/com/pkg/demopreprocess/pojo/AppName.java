@@ -1,4 +1,4 @@
-package com.pkg.demopreprocess.controller.pojo;
+package com.pkg.demopreprocess.pojo;
 
 public enum AppName {
     Calendar,
