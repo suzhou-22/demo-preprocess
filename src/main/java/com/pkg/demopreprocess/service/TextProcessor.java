@@ -25,4 +25,48 @@ public class TextProcessor {
         String content = (String) structedContent.getOrDefault("content", "");
         return "标题: " + title + ", 内容: " + content;
     }
+
+    public static String clipboard(Text text) {
+        return (String) text.structedContent().get("content");
+
+    }
+
+    public static String email(Text text) {
+        Map<String, Object> structedContent = text.structedContent();
+        StringBuilder sb = new StringBuilder();
+
+        String subject = (String) structedContent.get("subject");
+        String time = (String) structedContent.get("time");
+        String sender = (String) structedContent.get("sender");
+        String recipient = (String) structedContent.get("recipient");
+        String ccAddress = (String) structedContent.get("ccAddress"); // TODO
+        String content = (String) structedContent.get("content");
+
+        sb.append("发件人: ").append(sender)
+                .append(", 收件人: ").append(recipient)
+                .append(", 主题: ").append(subject)
+                .append(", 内容: ").append(content)
+                .append(", 时间： ").append(time);
+        return sb.toString();
+    }
+
+    public static String calendar(Text text) {
+        Map<String, Object> structedContent = text.structedContent();
+        StringBuilder sb = new StringBuilder();
+
+        String title = (String) structedContent.get("title");
+        String description = (String) structedContent.get("description");
+        String location = (String) structedContent.get("location");
+        String startTime = (String) structedContent.get("startTime");
+        String endTime = (String) structedContent.get("endTime");
+
+
+        sb.append("标题: ").append(title).append(", 表述").append(description);
+        sb.append(", 开始时间: ").append(startTime).append(", 结束时间: ").append(endTime);
+        if (location != null && !location.isBlank()) {
+            sb.append(", 地点: ").append(location);
+        }
+
+        return sb.toString();
+    }
 }

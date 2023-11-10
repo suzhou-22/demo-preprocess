@@ -13,13 +13,13 @@ public interface ExtractService {
         Text text = extractRequest.text();
 
         return switch (extractRequest.text().appname()) {
-            case Calendar -> "";
+            case Calendar -> TextProcessor.calendar(text);
             case Photo -> "";
             case SMS -> TextProcessor.sms(text);
             case MyDevice -> "";
-            case Clipboard -> "";
+            case Clipboard -> TextProcessor.clipboard(text);
             case Contacts -> "";
-            case Email -> "";
+            case Email -> TextProcessor.email(text);
             case Memo -> TextProcessor.memo(text);
             case UserInput -> "";
             case GPS -> "";
