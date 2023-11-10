@@ -39,7 +39,15 @@ public class TextProcessor {
         Map<String, Object> structedContent = text.structedContent();
         String title = (String) structedContent.getOrDefault("title", "");
         String content = (String) structedContent.getOrDefault("content", "");
-        return "标题: " + title + ", 内容: " + content;
+
+        StringBuilder sb = new StringBuilder();
+
+        if (title != null && !title.isBlank()) {
+            sb.append("标题: ").append(title).append(", ");
+            sb.append("内容:").append(content);
+        }
+
+        return sb.toString();
     }
 
     public static String clipboard(Text text) {
