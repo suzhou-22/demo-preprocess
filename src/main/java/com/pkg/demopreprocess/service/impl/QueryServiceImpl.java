@@ -45,6 +45,12 @@ public class QueryServiceImpl implements QueryService {
                 continue;
             }
 
+            // str
+            if (item.getString("info_type").equals("str") || item.containsKey("text")) {
+                String display = item.getString("text");
+                messages.add(new Message(Message.Type.STRING, display, null));
+            }
+
             // 人物
             if (item.getString("info_type").equals("人物")) {
                 String display = (String) item.getOrDefault("name", "");
@@ -82,11 +88,6 @@ public class QueryServiceImpl implements QueryService {
                 messages.add(new Message(Message.Type.STRING, display, null));
             }
 
-            // str
-            if (item.getString("info_type").equals("str")) {
-                String display = item.getString("text");
-                messages.add(new Message(Message.Type.STRING, display, null));
-            }
         }
 
         return messages;
