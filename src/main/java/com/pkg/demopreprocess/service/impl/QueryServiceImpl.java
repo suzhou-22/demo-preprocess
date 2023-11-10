@@ -6,12 +6,17 @@ import com.pkg.demopreprocess.pojo.Message;
 import com.pkg.demopreprocess.pojo.Question;
 import com.pkg.demopreprocess.service.QueryService;
 import com.pkg.demopreprocess.service.request.Query;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
+@Slf4j
 @Service
 public class QueryServiceImpl implements QueryService {
 
@@ -90,6 +95,7 @@ public class QueryServiceImpl implements QueryService {
     @Override
     public List<Message> query(Question question) throws IOException {
         JSONObject jsonObject = this.query.query(question);
+        log.info(jsonObject.toJSONString());
         return convert(jsonObject);
     }
 }
