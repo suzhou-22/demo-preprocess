@@ -5,6 +5,15 @@ import com.pkg.demopreprocess.pojo.Text;
 import java.util.Map;
 
 public class TextProcessor {
+
+    public static final int MESSAGE_TYPE_ALL = 0;
+    public static final int MESSAGE_TYPE_INBOX = 1;
+    public static final int MESSAGE_TYPE_SENT = 2;
+    public static final int MESSAGE_TYPE_DRAFT = 3;
+    public static final int MESSAGE_TYPE_OUTBOX = 4;
+    public static final int MESSAGE_TYPE_FAILED = 5; // for failed outgoing messages
+    public static final int MESSAGE_TYPE_QUEUED = 6; // for messages to send later
+
     static public String sms(Text text) {
         Map<String, Object> structedContent = text.structedContent();
         String phoneNumber = (String) structedContent.get("phone number");
@@ -12,6 +21,13 @@ public class TextProcessor {
         String contents = (String) structedContent.get("contents");
         String time = (String) structedContent.get("time");
         int type = (int) structedContent.get("type");  // TODO: 只考虑了接受短信的情况
+
+        if (type == MESSAGE_TYPE_SENT) {
+            return "收信人: " + phoneName +
+                    ", 收信人号码: " + phoneNumber +
+                    ", 内容: " + contents +
+                    ", 时间: " + time;
+        }
 
         return "发信人: " + phoneName +
                 ", 发信人号码: " + phoneNumber +
