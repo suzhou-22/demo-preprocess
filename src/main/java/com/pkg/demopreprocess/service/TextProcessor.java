@@ -42,9 +42,9 @@ public class TextProcessor {
         int type = (int) structedContent.get("type");  // TODO: 只考虑了接受短信的情况
 
         if (type == MESSAGE_TYPE_SENT) {
-
             formatter.add("收信人", phoneName)
                     .add("收信人号码", phoneNumber)
+                    .add("发信人", "杨梓")  // TODO delete this line!
                     .add("内容", contents)
                     .add("时间", time);
             return formatter.toString();
@@ -52,6 +52,7 @@ public class TextProcessor {
 
         formatter.add("发信人", phoneName)
                 .add("发信人号码", phoneNumber)
+                .add("收信人", "杨梓")  // TODO delete this line!
                 .add("内容", contents)
                 .add("时间", time);
         return formatter.toString();
