@@ -50,6 +50,7 @@ public class QueryServiceImpl implements QueryService {
                 || (item.containsKey("attribute") && item.getJSONObject("attribute").containsKey("text"))) {
                 String display = item.getString("text");
                 messages.add(new Message(Message.Type.STRING, display, null));
+                continue;
             }
 
             // 人物
