@@ -46,7 +46,8 @@ public class QueryServiceImpl implements QueryService {
             }
 
             // str
-            if (item.getString("info_type").equals("str") || item.containsKey("text")) {
+            if (item.getString("info_type").equals("str") || item.containsKey("text")
+                || (item.containsKey("attribute") && item.getJSONObject("attribute").containsKey("text"))) {
                 String display = item.getString("text");
                 messages.add(new Message(Message.Type.STRING, display, null));
             }
