@@ -109,7 +109,7 @@ public class QueryServiceImpl implements QueryService {
                     attribute.put(k, (String) v);
                 });
 
-                messages.add(new Message(Message.Type.PERSON, display, attribute));
+                messages.add(new Message(Message.Type.EVENT, display, attribute));
 
             }
 
