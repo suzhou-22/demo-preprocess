@@ -88,10 +88,10 @@ public class TextProcessor {
         String content = (String) structedContent.get("content");
 
         formatter.add("发件人", sender)
-                .add("收件人: ", recipient)
-                .add("主题: ", subject)
-                .add("内容: ", content)
-                .add("时间： ", time);
+                .add("收件人", recipient)
+                .add("主题", subject)
+                .add("内容", content)
+                .add("时间", time);
         return formatter.toString();
     }
 
@@ -106,7 +106,7 @@ public class TextProcessor {
         String endTime = (String) structedContent.get("endTime");
 
 
-        formatter.add("标题:", title)
+        formatter.add("标题", title)
                 .add("表述", description)
                 .add("开始时间", startTime)
                 .add("结束时间", endTime)
