@@ -55,8 +55,6 @@ public class QueryServiceImpl implements QueryService {
 
             // 人物
             if (item.getString("info_type").equals("人物")) {
-                if (item.getString("name").equals("赵飞"))
-                    continue;
                 String display = (String) item.getOrDefault("name", "");
                 // LinkedHashMap 可以保留顺序
                 Map<String, String> attribute = new LinkedHashMap<>();
