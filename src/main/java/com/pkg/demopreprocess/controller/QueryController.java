@@ -5,12 +5,10 @@ import com.pkg.demopreprocess.pojo.Question;
 import com.pkg.demopreprocess.service.QueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -29,5 +27,18 @@ public class QueryController {
     List<Message> queryDatabase(@RequestBody Question body) throws IOException {
         log.info(body.toString());
         return queryService.query(body);
+    }
+
+    @GetMapping("query/timeline")
+    @ResponseBody
+    List<Message> timeline() {
+        List<Message> messages = new ArrayList<>();
+
+        messages.add(new Message(Message.Type.EVENT, "家庭活动", "家长会\n科技馆\n家庭聚会", null));
+        messages.add(new Message(Message.Type.EVENT, "空闲", "", null));
+        messages.add(new Message(Message.Type.EVENT, "会议", "团队会议\n客户会议", null));
+        messages.add(new Message(Message.Type.EVENT, "出差", "杭州出差", null));
+
+        return messages;
     }
 }

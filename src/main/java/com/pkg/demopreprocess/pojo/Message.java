@@ -8,7 +8,7 @@ import java.util.Map;
  * @param display 如果是STRING类型的消息，表示内容；如果是其他类型，表示要显示在按钮上的文字
  * @param attribute 人物和事件的属性，STRING类型的Message为空
  */
-public record Message(Type type, String display, Map<String, String> attribute) {
+public record Message(Type type, String title, String display, Map<String, String> attribute) {
     public enum Type {
         PERSON,
         EVENT,
