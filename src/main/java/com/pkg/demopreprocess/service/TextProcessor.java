@@ -90,8 +90,7 @@ public class TextProcessor {
         formatter.add("发件人", sender)
                 .add("收件人", recipient)
                 .add("主题", subject)
-                .add("内容", content)
-                .add("时间", time);
+                .add("内容", content);
         return formatter.toString();
     }
 

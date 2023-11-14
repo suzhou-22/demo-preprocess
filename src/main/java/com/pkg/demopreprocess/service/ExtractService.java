@@ -9,10 +9,8 @@ import java.io.IOException;
 public interface ExtractService {
 
 
-    static String getText(ExtractRequest extractRequest) {
-        Text text = extractRequest.text();
-
-        return switch (extractRequest.text().appname()) {
+    static String getText(Text text) {
+        return switch (text.appname()) {
             case Calendar -> TextProcessor.calendar(text);
             case Photo -> "";
             case SMS -> TextProcessor.sms(text);
