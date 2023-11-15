@@ -81,7 +81,6 @@ public class TextProcessor {
         Formatter formatter = new Formatter();
 
         String subject = (String) structedContent.get("subject");
-        String time = (String) structedContent.get("time");
         String sender = (String) structedContent.get("sender");
         String recipient = (String) structedContent.get("recipient");
         String ccAddress = (String) structedContent.get("ccAddress"); // TODO
