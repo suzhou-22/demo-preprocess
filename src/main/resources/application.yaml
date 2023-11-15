@@ -5,3 +5,7 @@ request:
   host: http://localhost:12346
   extract: getExtractionResult
   query: queryDatabase
+
+logging:
+  file:
+    name: /tmp/demo-preprocess.log
