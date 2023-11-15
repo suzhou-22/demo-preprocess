@@ -1,3 +1,5 @@
+[![Docker Image CI](https://github.com/Ligandlly/demo-preprocess/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Ligandlly/demo-preprocess/actions/workflows/docker-image.yml)
+
 # 后端API
 
 ## 查询
