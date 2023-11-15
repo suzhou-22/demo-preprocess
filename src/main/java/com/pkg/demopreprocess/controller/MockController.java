@@ -29,4 +29,9 @@ public class MockController {
 
         return rlt;
     }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello from demo-preprocessing";
+    }
 }
