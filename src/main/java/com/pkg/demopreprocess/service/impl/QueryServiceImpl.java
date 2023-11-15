@@ -41,7 +41,7 @@ public class QueryServiceImpl implements QueryService {
                 String tail = item.getString("尾实体");
                 String relation = item.getString("关系");
                 String display = head + "的" + relation + "是" + tail;
-                messages.add(new Message(Message.Type.STRING, display, null));
+                messages.add(new Message(Message.Type.STRING, "", display, null));
                 continue;
             }
 
@@ -49,7 +49,7 @@ public class QueryServiceImpl implements QueryService {
             if (item.getString("info_type").equals("str") || item.containsKey("text")
                 || (item.containsKey("attribute") && item.getJSONObject("attribute").containsKey("text"))) {
                 String display = item.getString("text");
-                messages.add(new Message(Message.Type.STRING, display, null));
+                messages.add(new Message(Message.Type.STRING, "", display, null));
                 continue;
             }
 
@@ -80,7 +80,7 @@ public class QueryServiceImpl implements QueryService {
                     attribute.put(k, (String) v);
                 });
 
-                messages.add(new Message(Message.Type.PERSON, display, attribute));
+                messages.add(new Message(Message.Type.PERSON, "", display, attribute));
                 continue;
             }
 
@@ -111,7 +111,7 @@ public class QueryServiceImpl implements QueryService {
                     attribute.put(k, (String) v);
                 });
 
-                messages.add(new Message(Message.Type.EVENT, display, attribute));
+                messages.add(new Message(Message.Type.EVENT, "", display, attribute));
 
             }
 

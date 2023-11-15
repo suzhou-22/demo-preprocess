@@ -81,7 +81,6 @@ public class TextProcessor {
         Formatter formatter = new Formatter();
 
         String subject = (String) structedContent.get("subject");
-        String time = (String) structedContent.get("time");
         String sender = (String) structedContent.get("sender");
         String recipient = (String) structedContent.get("recipient");
         String ccAddress = (String) structedContent.get("ccAddress"); // TODO
@@ -90,8 +89,7 @@ public class TextProcessor {
         formatter.add("发件人", sender)
                 .add("收件人", recipient)
                 .add("主题", subject)
-                .add("内容", content)
-                .add("时间", time);
+                .add("内容", content);
         return formatter.toString();
     }
 
