@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.13.0
+      with:
+         # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+         java-version: '17' # optional
+
+    - name: Docker login
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }} 
+
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: sh ./push
