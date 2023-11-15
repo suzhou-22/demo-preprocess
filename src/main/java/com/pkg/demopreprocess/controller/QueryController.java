@@ -2,6 +2,7 @@ package com.pkg.demopreprocess.controller;
 
 import com.pkg.demopreprocess.pojo.Message;
 import com.pkg.demopreprocess.pojo.Question;
+import com.pkg.demopreprocess.pojo.frontend.Event;
 import com.pkg.demopreprocess.service.QueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +32,13 @@ public class QueryController {
 
     @GetMapping("query/timeline")
     @ResponseBody
-    List<Message> timeline() {
-        List<Message> messages = new ArrayList<>();
+    List<Event> timeline() {
+        List<Event> messages = new ArrayList<>();
 
-        messages.add(new Message(Message.Type.EVENT, "家庭活动", "家长会\n科技馆\n家庭聚会", null));
-        messages.add(new Message(Message.Type.EVENT, "空闲", "", null));
-        messages.add(new Message(Message.Type.EVENT, "会议", "团队会议\n客户会议", null));
-        messages.add(new Message(Message.Type.EVENT, "出差", "杭州出差", null));
+        messages.add(new Event(new Message(Message.Type.EVENT, "家庭活动", "家长会\n科技馆\n家庭聚会", null)));
+        messages.add(new Event(new Message(Message.Type.EVENT, "空闲", "", null)));
+        messages.add(new Event(new Message(Message.Type.EVENT, "会议", "团队会议\n客户会议", null)));
+        messages.add(new Event(new Message(Message.Type.EVENT, "出差", "杭州出差", null)));
 
         return messages;
     }
