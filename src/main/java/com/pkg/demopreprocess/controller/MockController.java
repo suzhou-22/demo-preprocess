@@ -32,6 +32,6 @@ public class MockController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello from demo-preprocessing";
+        return "Hello from demo-preprocessing CI";
     }
 }
