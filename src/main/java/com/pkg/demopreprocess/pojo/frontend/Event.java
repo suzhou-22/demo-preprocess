@@ -28,6 +28,11 @@ public class Event {
     }
 
     static long getStartTimestamp(Message message) {
+        try {
+            Thread.sleep(3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return System.currentTimeMillis();
     }
 }

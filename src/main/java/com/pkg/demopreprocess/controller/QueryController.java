@@ -35,10 +35,10 @@ public class QueryController {
     List<Event> timeline() {
         List<Event> messages = new ArrayList<>();
 
-        messages.add(new Event(new Message(Message.Type.EVENT, "家庭活动", "家长会\n科技馆\n家庭聚会", null)));
         messages.add(new Event(new Message(Message.Type.EVENT, "空闲", "", null)));
         messages.add(new Event(new Message(Message.Type.EVENT, "会议", "团队会议\n客户会议", null)));
         messages.add(new Event(new Message(Message.Type.EVENT, "出差", "杭州出差", null)));
+        messages.add(new Event(new Message(Message.Type.EVENT, "家庭活动", "家长会\n科技馆\n家庭聚会", null)));
 
         return messages;
     }
