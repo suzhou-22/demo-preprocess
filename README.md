@@ -250,7 +250,7 @@ MESSAGE_TYPE_QUEUED = 6; // for messages to send later
 ```javascript
 {
     "user_id": "",
-    "appname": "Contacts",
+    "appname": "Calendar",
     "operation_type": "add",
     "structured_content": {
         "title": "",
